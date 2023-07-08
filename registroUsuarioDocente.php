@@ -2,8 +2,8 @@
 
 
 $servername = "localhost";
-$username = "root";
-$password = "";
+$username = "userAcceso";
+$password = "userAcceso";
 $dbname = "Acceso";
 
 // Crear conexión
