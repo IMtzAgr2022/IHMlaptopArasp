@@ -112,7 +112,7 @@
       </tr>
 
       <?php
-      $conexion = mysqli_connect('localhost', 'root', '', 'acceso');
+      $conexion = mysqli_connect('localhost', 'userAcceso', 'userAcceso', 'Acceso');
       $sql = "SELECT * from usuarios";
       $result = mysqli_query($conexion, $sql);
 
