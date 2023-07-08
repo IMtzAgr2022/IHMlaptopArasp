@@ -1,6 +1,7 @@
 import RPi.GPIO as GPIO
 import MFRC522
 import time
+import requests
 
 #archivo = "pruebaUID.txt"
 
@@ -86,6 +87,13 @@ class RFID:
               archivo.write(self.uidToString(uid)+"\n")
             #agregarCadena(cadena,archivo)
             print(cadena)
+            url = "http://localhost/registroUsuarioByAdmin.php"
+            data = {
+                "idTarjeta": cadena,  # 'id_tarjeta' es el nombre del campo en el formulario
+                # Otros datos del formulario si es necesario
+            }
+            response = requests.post(url, data=data)
+            print(response.text)
             #print(archivo)
             #agregar_cadena_al_archivo(cadena, archivo)
             #with open('archivoUID.txt', 'w') as archivo:
