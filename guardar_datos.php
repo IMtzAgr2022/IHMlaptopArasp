@@ -3,8 +3,8 @@
 session_start();
 $host = "localhost";
 $dbname = "Acceso";
-$username = "root";
-$password = "";
+$username = "userAcceso";
+$password = "userAcceso";
 $dsn = "mysql:host=$host;dbname=$dbname;charset=utf8mb4";
 
 try {
