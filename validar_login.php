@@ -3,9 +3,9 @@
 
 // Establecer la conexión a la base de datos
 $servername = "localhost";
-$usernameDB = "root";
-$passwordDB = "";
-$dbname = "acceso";
+$usernameDB = "userAcceso";
+$passwordDB = "userAcceso";
+$dbname = "Acceso";
 
 // Crear la conexión
 $conn = new mysqli($servername, $usernameDB, $passwordDB, $dbname);
