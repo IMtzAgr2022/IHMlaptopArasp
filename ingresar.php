@@ -1,5 +1,5 @@
 <?php
-$conexion = mysqli_connect('localhost', 'root', '', 'acceso');
+$conexion = mysqli_connect('localhost', 'userAcceso', 'userAcceso', 'Acceso');
 
 if (isset($_POST['registrar'])) {
     if (strlen($_POST['txtUsuario']) >= 1 && strlen($_POST['txtpassword']) >= 1) {
