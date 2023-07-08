@@ -273,8 +273,11 @@ $conn->close();
                 <option value="Docente">Docente</option>
             </select>
 
-            <label for="idTarjeta">*Identificador de la Tarjeta:</label>
-            <input type="text" id="idTarjeta" name="idTarjeta" required placeholder="A9B8C7D6" pattern="[A-Za-z0-9]{8}">
+            <div class="tarjeta-input">
+                <label for="idTarjeta">*Identificador de la Tarjeta:</label>
+                <input type="text" id="idTarjeta" name="idTarjeta" required placeholder="A9B8C7D6" pattern="[A-Za-z0-9]{8}">
+                <input type="button" value="Leer Tarjeta" onclick="leerTarjeta()">
+            </div>
 
             <button type="submit" id="submitBtn">Registrar</button>
         </form>
@@ -303,6 +306,28 @@ $conn->close();
         <?php if (isset($successMessage)) : ?>
             alert("<?php echo $successMessage; ?>");
         <?php endif; ?>
+	function leerTarjeta() {
+        // Function to send a request to the server and update the idTarjeta field
+        var xhttp = new XMLHttpRequest();
+
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                // Request successful, update the idTarjeta field with the received UID
+                document.getElementById('idTarjeta').value = this.responseText;
+            }
+        };
+
+        xhttp.open("GET", "read-uid.php", true);
+        xhttp.send();
+    }
+
+    // Function to continuously listen for new UID values
+    function startListening() {
+        setInterval(leerTarjeta, 1000); // Adjust the interval as needed (in milliseconds)
+    }
+
+    // Start listening when the page is loaded
+    window.onload = startListening;
     </script>
 </body>
 
